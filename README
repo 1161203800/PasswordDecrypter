@@ -1,0 +1,7 @@
+Assignment for TCS2251 Computer Security
+---------------------
+A script to brutuforce password hashes using mkpasswd on Ubuntu
+---------------------
+Run PasswordDecrypter.sh, This script will decrypt 4 hash values together in hackcode.txt
+
+KRACKHEAD
