@@ -2,14 +2,14 @@
 
 #List of characters
 #List of capital letter characters
-LIST1=(F K L W)
+LIST1=(F K L W) #PLAY HERE
 #List of number characters
-LIST2=(2 8 9) 
+LIST2=(2 8 9) #PLAY HERE
 #List of letter characters
-LIST3=(b s v x)
+LIST3=(b s v x) #PLAY HERE
 #List of unique characters
-LIST4=("~" "*" "-" "[")
-LIST5=("%" "+" "]" "$")
+LIST4=("~" "*" "-" "[") #PLAY HERE
+LIST5=("%" "+" "]" "$") #PLAY HERE
 
 #MD5 Encrypted Key
 encr2="$(cat hackcode.txt |cut -d";" -f1)" #retrieve the MD5 hash string from hackcode.txt file
@@ -58,10 +58,10 @@ for i in "${LIST1[@]}" #loop the List of capital letter characters
 			do
 
 #simultaneously run all 4 hashes to find the same ones	
-#runs current looped character to compare MD5 hashes
-	test1="$(mkpasswd -m MD5 "$i$j$k$l$a" -s $salt1 | cut -d"$" -f4)"
+#Generate MD5 using current looped character with given salt and retrieve the hash code ONLY from MD5 hash string to test1
+	test1="$(mkpasswd -m MD5 "$i$j$k$l$a" -s $salt1 | cut -d"$" -f4)" 
 	((loop1++)) #times tried of MD5 hashes comaparing
-	#display when MD5 password found
+	#display when MD5 password found when comparing
 	if [ "$test1" == "$hash1" ] ; then
 		printf "\n\nMD5 PASSWORD FOUND\n"
 		echo "Loop Counts : $loop1"
@@ -71,7 +71,7 @@ for i in "${LIST1[@]}" #loop the List of capital letter characters
 	fi
 
 
-#runs current looped character to compare DES hashes
+#Generate DES using current looped character with given salt and retrieve DES hash string to test2
 	test2="$(mkpasswd -m DES "$i$j$k$l$a" -s $salt2)"
 	((loop2++)) #times tried of DES hashes comaparing
 	#display when DES password found
@@ -83,7 +83,7 @@ for i in "${LIST1[@]}" #loop the List of capital letter characters
 		counter2=1 #Upate counter that DES has been found
 	fi
 
-#runs current looped character to compare SHA-256 hashes
+#Generate SHA-256 using current looped character with given salt and retrieve the hash code ONLY from SHA-256 hash string to test3
 	test3="$(mkpasswd -m SHA-256 "$i$j$k$l$a" -s $salt3 | cut -d"$" -f4)"
 	((loop3++)) #times tried of SHA-256 hashes comaparing
 	#display when SHA-256 password found
@@ -95,7 +95,7 @@ for i in "${LIST1[@]}" #loop the List of capital letter characters
 		counter3=1 #Upate counter that SHA-256 has been found
 	fi
 	
-#runs current looped character to compare SHA-512 hashes
+#Generate SHA-512 using current looped character with given salt and retrieve the hash code ONLY from SHA-512 hash string to test4
 	test4="$(mkpasswd -m SHA-512 "$i$j$k$l$a" -s $salt4 | cut -d"$" -f4)"
 	((loop4++)) #times tried of SHA-512 hashes comaparing
 	#display when SHA-512 password found
