@@ -128,4 +128,4 @@ if [ $counter4 == 0 ] ; then
 fi
 
 #End of loops display a notification for user
-		printf "\n\nBruteforce Completed!\n\n"
+printf "\n\nBruteforce Completed!\n\n"
