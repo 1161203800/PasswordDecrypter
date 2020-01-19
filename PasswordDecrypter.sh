@@ -12,9 +12,9 @@ LIST4=("~" "@" "#" "$" "%" "^" "*" "_" "+" "-" "=" "{" "}" "[" "]" "?" ";" ":")
 LIST5=("~" "@" "#" "$" "%" "^" "*" "_" "+" "-" "=" "{" "}" "[" "]" "?" ";" ":")
 
 #MD5 Encrypted Key
-encr2="$(cat hackcode.txt |cut -d";" -f1)" #retrieve the MD5 hash string from hackcode.txt file
-hash1="$(echo $encr2 |cut -d"$" -f4)" #retrieve the hash string from MD5 hash string
-salt1="$(echo $encr2 |cut -d"$" -f3)" #retrieve the salt string from MD5 hash string
+encr1="$(cat hackcode.txt |cut -d";" -f1)" #retrieve the MD5 hash string from hackcode.txt file
+hash1="$(echo $encr1 |cut -d"$" -f4)" #retrieve the hash string from MD5 hash string
+salt1="$(echo $encr1 |cut -d"$" -f3)" #retrieve the salt string from MD5 hash string
 
 #DES Encrypted Key
 encr2="$(cat hackcode.txt |cut -d";" -f2)" #retrieve the DES hash string from hackcode.txt file
